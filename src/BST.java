@@ -48,7 +48,29 @@ public class BST {
      */
     public boolean search(int val) {
         // TODO: Complete the search function
-        return false;
+        return binarySearch(val, root);
+    }
+
+    public boolean binarySearch(int val, BSTNode currRoot) {
+        // If we have traversed outside our tree, beyond a leaf, it will not exist; hence, false
+        if (currRoot == null) {
+            return false;
+        }
+
+        // If the currRoot is equal to value, it is found
+        if (currRoot.getVal() == val)
+        {
+            return true;
+        }
+
+        // If the value is smaller, move down towards the left
+        if (currRoot.getVal() > val) {
+`           return binarySearch(val, currRoot.getLeft());
+        }
+        else
+        {
+            return binarySearch(val, currRoot.getRight());
+        }
     }
 
     /**
