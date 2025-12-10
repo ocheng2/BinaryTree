@@ -77,8 +77,22 @@ public class BST {
      * @return ArrayList of BSTNodes in inorder
      */
     public ArrayList<BSTNode> getInorder() {
-        // TODO: Complete inorder traversal
+        ArrayList<BSTNode> nodes = new ArrayList<>();
         return null;
+    }
+
+    public ArrayList<BSTNode> inOrder(BSTNode currRoot, ArrayList<BSTNode> nodes)
+    {
+        if (currRoot == null)
+        {
+
+        }
+
+        if (currRoot)
+
+        return inOrder(currRoot.getLeft(), nodes);
+
+        return inOrder(currRoot.getRight(),nodes);
     }
 
     /**
