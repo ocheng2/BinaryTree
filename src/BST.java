@@ -65,7 +65,7 @@ public class BST {
 
         // If the value is smaller, move down towards the left
         if (currRoot.getVal() > val) {
-`           return binarySearch(val, currRoot.getLeft());
+            return binarySearch(val, currRoot.getLeft());
         }
         else
         {
@@ -163,25 +163,26 @@ public class BST {
      * @param val The value ot insert
      */
     public void insert(int val) {
-        if ()
+        root = addInsert(val, root);
     }
 
-    public void addInsert(int val, BSTNode currRoot)
+    public BSTNode addInsert(int val, BSTNode currRoot)
     {
         // Check if the node exists, if not move back up the tree to the leaf
         if (currRoot == null)
         {
-            return;
+            return new BSTNode(val);
         }
 
         if (currRoot.getVal() > val)
         {
-            addInsert(val, currRoot.getLeft());
+            currRoot.setLeft(addInsert(val, currRoot.getLeft()));
         }
         else
         {
-            addInsert(val, currRoot.getRight());
+            currRoot.setRight(addInsert(val, currRoot.getRight()));
         }
+        return currRoot;
     }
 
     /**
