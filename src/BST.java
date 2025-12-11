@@ -78,7 +78,6 @@ public class BST {
      */
     public ArrayList<BSTNode> getInorder() {
         ArrayList<BSTNode> nodes = new ArrayList<>();
-
         doInOrder(root, nodes);
 
         return nodes;
@@ -106,9 +105,29 @@ public class BST {
      * @return ArrayList of BSTNodes in preorder
      */
     public ArrayList<BSTNode> getPreorder() {
-        // TODO: Complete preorder traversal
-        return null;
+        ArrayList<BSTNode> nodes = new ArrayList<>();
+        doInOrder(root, nodes);
+
+        return nodes;
     }
+
+    public void doPreorder(BSTNode currRoot, ArrayList<BSTNode> nodes) {
+        // Check if the node exists, if not move back up the tree to the leaf
+        if (currRoot == null)
+        {
+            return;
+        }
+
+        // Adds the current root
+        nodes.add(currRoot);
+
+        // Traverse down the left side of the tree
+        doPreorder(currRoot.getLeft(), nodes);
+
+        // Traverse down the right side of the tree
+        doPreorder(currRoot.getRight(), nodes);
+    }
+
 
     /**
      * @return ArrayList of BSTNodes in postorder
