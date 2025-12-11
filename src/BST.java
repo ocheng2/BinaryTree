@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 /**
  * An Integer Binary Search Tree
- * @author: Your Name Here
- * @version: Date
+ * @author: Olivia Cheng
+ * @version: 12/10/25
  */
 
 public class BST {
@@ -163,7 +163,25 @@ public class BST {
      * @param val The value ot insert
      */
     public void insert(int val) {
-        // TODO: Complete insert
+        if ()
+    }
+
+    public void addInsert(int val, BSTNode currRoot)
+    {
+        // Check if the node exists, if not move back up the tree to the leaf
+        if (currRoot == null)
+        {
+            return;
+        }
+
+        if (currRoot.getVal() > val)
+        {
+            addInsert(val, currRoot.getLeft());
+        }
+        else
+        {
+            addInsert(val, currRoot.getRight());
+        }
     }
 
     /**
