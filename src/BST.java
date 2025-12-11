@@ -78,21 +78,28 @@ public class BST {
      */
     public ArrayList<BSTNode> getInorder() {
         ArrayList<BSTNode> nodes = new ArrayList<>();
-        return null;
+
+        doInOrder(root, nodes);
+
+        return nodes;
     }
 
-    public ArrayList<BSTNode> inOrder(BSTNode currRoot, ArrayList<BSTNode> nodes)
+    public void doInOrder(BSTNode currRoot, ArrayList<BSTNode> nodes)
     {
+        // Check if the node exists, if not move back up the tree to the leaf
         if (currRoot == null)
         {
-
+            return;
         }
 
-        if (currRoot)
+        // Traverse down the left side of the tree
+        doInOrder(currRoot.getLeft(), nodes);
 
-        return inOrder(currRoot.getLeft(), nodes);
+        // Add the root to array
+        nodes.add(currRoot);
 
-        return inOrder(currRoot.getRight(),nodes);
+        // Traverse down the right side of the tree
+        doInOrder(currRoot.getRight(), nodes);
     }
 
     /**
